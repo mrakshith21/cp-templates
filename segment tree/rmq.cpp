@@ -7,6 +7,10 @@ using namespace std;
     1. Range addition
     2. Get value at index
     3. Update value at index
+
+    Please note to modify the lines marked with
+        'MODIFY this based on the problem'
+    based on the problem
 */
  
 class SegTree{
@@ -31,6 +35,7 @@ public:
         }
     }
  
+    // MODIFY this based on the problem
     void combine(){
         value = lChild->value + rChild->value;
     }
@@ -59,15 +64,31 @@ public:
         combine();
     }
  
-    long long int range_sum(int l, int r){
+    long long int range_query(int l, int r){
         if(r < left or l > right){
+            // MODIFY this based on the problem
             return 0;
         }
         if(l <= left and right <= r){
             return value;
         }
         
-        return lChild->range_sum(l, r) + rChild->range_sum(l, r);
+        // MODIFY this based on the problem
+        return lChild->range_query(l, r) + rChild->range_query(l, r);
     }    
 };
- 
+
+// Array compression
+// returns the new array with compressed values
+vector<int> compress_array(vector<int>& a){
+    int n = a.size();
+    set<int> s(a.begin(), a.end());
+    vector<int> result(n);
+    map<int, int> idx;
+    int cnt = 0;
+    for(int x: s)
+        idx[x] = cnt++;
+    for(int i = 0; i < n; i++)
+        result[i] = idx[a[i]];
+    return result;
+}

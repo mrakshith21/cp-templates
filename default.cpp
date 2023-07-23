@@ -1,3 +1,10 @@
+/*
+    Author: Rakshith Mohan
+    CF Profile - https://codeforces.com/profile/rakshith21mohan
+
+    This is my template file for competitive programming
+*/
+
 // #pragma GCC optimize("O3,unroll-loops")
 // #pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
  

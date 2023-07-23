@@ -5,10 +5,10 @@ using namespace std;
     lca using binary lifting
     0 - indexed vertices
     source:https://cp-algorithms.com/graph/lca_binary_lifting.html
-    
+
     remember to call build() after adding edges
 */
-class lca{   
+class lca{
 
 public:
 
@@ -22,7 +22,11 @@ public:
 
     bool built = false;
 
-    // private method
+    lca(int n){
+        this->n = n;
+        adj = vector<vector<int>>(n);
+    }
+
     void preprocess(int root) {
         assert(!built);
         tin.resize(n);
@@ -50,11 +54,6 @@ public:
         tout[v] = ++timer;
     }
 
-    lca(int n){
-        this->n = n;
-        adj = vector<vector<int>>(n);
-    }
-
     void add_edge(int a, int b){
         assert(0 <= a and a < n);
         assert(0 <= b and b < n);
@@ -62,18 +61,22 @@ public:
         adj[b].emplace_back(a);
     }
 
+    // build the 'up' array using binary lifting from the given root node
+    // remember to call this function at the beginning
     void build(int root){
         assert(!built);
         preprocess(root);
         built = true;
     }
-    
+
+    // check if u is an ancestor of v
     bool is_ancestor(int u, int v)
     {
         assert(built);
         return tin[u] <= tin[v] && tout[u] >= tout[v];
     }
 
+    // get LCA of nodes u and v
     int get_lca(int u, int v)
     {
         assert(built);
@@ -86,8 +89,9 @@ public:
                 u = up[u][i];
         }
         return up[u][0];
-    }    
+    }
 
+    // distance between nodes a and b
     int distance(int a, int b){
         assert(built);
         assert(0 <= a and a < n);

@@ -13,15 +13,12 @@
     - Manacher's (half done)
 5. Convex hull (never used till now)
 
-
 ### TODO
 
-1. Diameter of a tree
-2. Graph algorithms
+1. Graph algorithms
     - Djikstra
     - MST using Kruskal
-3. Euler path of a tree
-4. Manacher's algorithm
+2. Manacher's algorithm
   
   
 ### CP profiles  
