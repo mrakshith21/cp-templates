@@ -7,11 +7,13 @@
 3. Segment Trees
     - Simple RMQ with range query, point update
     - Lazy propagation tree
+    - Sparse table
 4.  String algorithms
     - KMP
     - Z function
     - Manacher's (half done)
 5. Convex hull (never used till now)
+6. Ternary search
 
 ### TODO
 
