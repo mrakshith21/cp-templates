@@ -21,7 +21,7 @@ public:
     SegTree *lChild, *rChild;
     long long int value;
  
-    SegTree(int l, int r, long long int a[]){
+    SegTree(int l, int r, vector<int>& a){
         left = l;
         right = r;
         if(l == r){
