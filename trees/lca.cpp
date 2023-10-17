@@ -91,6 +91,19 @@ public:
         return up[u][0];
     }
 
+    /*
+        Returns kth ancestor using binary lifting, -1 if it does not exist
+    */
+    int get_kth_ancestor(int u, int k){
+        if(k > depth[u])
+            return -1;
+        for(int i = l; i >= 0; i--){
+            if(k & (1 << i))
+                u = up[u][i];
+        }
+        return u;
+    }
+
     // distance between nodes a and b
     int distance(int a, int b){
         assert(built);
