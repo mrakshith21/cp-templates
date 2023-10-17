@@ -4,7 +4,7 @@ using namespace std;
 
 /*
     Supports 
-    1. Range addition
+    1. Range query
     2. Get value at index
     3. Update value at index
 
