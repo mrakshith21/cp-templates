@@ -10,6 +10,10 @@ double f(double pnt){
     // return the value of the function at this pnt
 }
 
+double check(double val){
+    // return whether val satifies the condition
+}
+
 /*
 
 Ternary search implementation
@@ -82,4 +86,21 @@ double ternary_search_convex(double l, double r, double eps){
         }
     }
     return f(l);
+}
+
+/*
+    * refer https://codeforces.com/blog/entry/63085
+    * for increasing function
+    * IT_CNT should be chosen while balancing precision and runtime
+*/
+void binary_search_real_values(){
+    const int MIN_VAL = 0, MAX_VAL = 1e18, IT_CNT = 200, eps = 1e-9;
+    double l = MIN_VAL, r = MAX_VAL;
+    for(int it = 0; it < IT_CNT and r - l > eps; it++){
+        double mid = l + (r - l) / 2;
+        if(check(mid))
+            l = mid;
+        else    
+            r = mid;
+    }
 }
